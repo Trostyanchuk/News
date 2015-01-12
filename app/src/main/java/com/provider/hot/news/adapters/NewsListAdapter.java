@@ -54,8 +54,10 @@ public class NewsListAdapter extends BaseAdapter {
         TextView description = (TextView) view.findViewById(R.id.description);
 
         if (newsList.get(position) != null) {
-            imageView.setImageBitmap(BitmapFactory.decodeByteArray(newsList.get(position).getImage(),
-                    0, newsList.get(position).getImage().length));
+            if(newsList.get(position).getImage() != null) {
+                imageView.setImageBitmap(BitmapFactory.decodeByteArray(newsList.get(position).getImage(),
+                        0, newsList.get(position).getImage().length));
+            }
             title.setText(newsList.get(position).getTitle());
             date.setText(newsList.get(position).getDate());
             description.setText(newsList.get(position).getDescription());
